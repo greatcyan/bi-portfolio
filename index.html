@@ -182,11 +182,20 @@
     display: grid; place-items: center;
   }
   .slide-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .slide-empty { display: none; text-align: center; padding: 1.5rem; color: var(--muted); }
-  .slide-empty strong { display: block; font-family: var(--display); font-size: 1.375rem; color: var(--ink); margin-bottom: 0.375rem; }
-  .slide-empty code { font-size: 0.9375rem; }
+  .slide-empty {
+    display: none; width: 100%; height: 100%;
+    background: var(--ink); color: #C4D0D2;
+    padding: 2rem; align-content: center; text-align: left;
+    font-size: clamp(1rem, 2vw, 1.375rem);
+  }
+  .slide-empty strong {
+    display: block; font-family: var(--display); font-weight: 700;
+    font-size: clamp(3.5rem, 11vw, 8rem); line-height: 1; letter-spacing: -0.03em;
+    color: var(--paper); margin-bottom: 0.75rem;
+  }
   .slide.is-empty img { display: none; }
-  .slide.is-empty .slide-empty { display: block; }
+  .slide.is-empty .slide-empty { display: grid; }
+  .slide-client { display: block; color: var(--muted); font-size: 0.9375rem; }
   .slide figcaption { margin-top: 0.75rem; }
   .slide figcaption a { display: inline-block; margin-left: 0.25rem; font-size: 0.9375rem; }
   .slide-title { font-family: var(--display); font-weight: 700; font-size: 1.1875rem; display: block; }
@@ -431,32 +440,39 @@
 
   <section class="wrap section" id="work">
     <h2>Selected work</h2>
-    <p class="section-lede">Client data is confidential, so these are written summaries of what I built and what changed as a result.</p>
+    <p class="section-lede">My latest project for each client, newest first. Client data is confidential, so most are written summaries of what I built and what changed as a result.</p>
 
-    <!-- Gallery: to add a slide, copy one <figure class="slide"> block and change the src, alt, and caption.
-         New screenshots can go in an "images" folder next to index.html, e.g. src="images/project-tracking.png". -->
+    <!-- Gallery: every image in the repo folder images/works is shown here automatically, sorted by file name.
+         The slides below are the fallback shown while that folder is empty. -->
     <div class="gallery">
-      <div class="gallery-track" id="gallery-track" tabindex="0" role="region" aria-label="Screenshots of my work, swipe or scroll sideways">
+      <div class="gallery-track" id="gallery-track" tabindex="0" role="region" aria-label="My latest work for each client, swipe or scroll sideways">
         <figure class="slide" style="--stage-color: var(--gold)">
           <div class="slide-frame">
-            <img src="https://github.com/user-attachments/assets/a61cea35-3ef0-4da7-9838-98bdbecf3313" alt="Revenue analytics Power BI dashboard" loading="lazy">
-            <div class="slide-empty"><strong>Image unavailable</strong></div>
+            <img src="images/de-project-platform.png" alt="Project tracking dashboard for D&amp;E Air Conditioning" loading="lazy">
+            <div class="slide-empty"><strong>90%</strong>less manual data work for project teams</div>
           </div>
-          <figcaption><span class="slide-title">Revenue analytics in Power BI</span><span class="slide-note">Volume-weighted AUR to rank customers, products, and company codes for P&amp;L reviews.</span> <a href="https://app.powerbi.com/view?r=eyJrIjoiY2JhYzk3NGItYmVhOC00NGQ4LWJiNTktMjY5ZmY1YTExY2E0IiwidCI6ImJhNThmNDM4LWI2YWItNDEwOS1iYTM5LWVhMGFiZTA2ZTQwZiIsImMiOjEwfQ%3D%3D&amp;embedImagePlaceholder=true">Explore the live report</a></figcaption>
+          <figcaption><span class="slide-title">Project reporting platform on Microsoft Fabric</span><span class="slide-client">D&amp;E Air Conditioning, Melbourne, 2024 to present</span><span class="slide-note">Medallion Lakehouse and Power BI tracking across drafting, engineering, and construction.</span></figcaption>
         </figure>
         <figure class="slide" style="--stage-color: var(--fabric)">
           <div class="slide-frame">
-            <img src="https://github.com/user-attachments/assets/24e79dc8-44c1-4dd7-8303-8590989a3767" alt="Power Apps interface for revenue driver commentary" loading="lazy">
-            <div class="slide-empty"><strong>Image unavailable</strong></div>
+            <img src="images/avantguard-it-assets.png" alt="IT asset reconciliation dashboard for AvantGuard" loading="lazy">
+            <div class="slide-empty"><strong>40%</strong>less manual reporting effort</div>
           </div>
-          <figcaption><span class="slide-title">Revenue driver commentaries in Power Apps</span><span class="slide-note">Business commentary captured against revenue data points and surfaced in Power BI.</span> <a href="https://greatcyan.github.io/portfolio/drivercommenting.html">Read the write-up</a></figcaption>
+          <figcaption><span class="slide-title">Unified IT asset reporting</span><span class="slide-client">AvantGuard LLC, Connecticut, 2025 to 2026</span><span class="slide-note">HaloPSA, NinjaOne, and Huntress data reconciled in one Power BI model.</span></figcaption>
+        </figure>
+        <figure class="slide" style="--stage-color: var(--silver)">
+          <div class="slide-frame">
+            <img src="images/moderno-oee.png" alt="Overall Equipment Effectiveness dashboard for Moderno Plant X" loading="lazy">
+            <div class="slide-empty"><strong>OEE</strong>machine performance across plant operations</div>
+          </div>
+          <figcaption><span class="slide-title">Equipment effectiveness dashboards</span><span class="slide-client">Moderno Plant X, Houston, 2024</span><span class="slide-note">Machine performance and utilization for downtime reduction.</span></figcaption>
         </figure>
         <figure class="slide" style="--stage-color: var(--bronze)">
           <div class="slide-frame">
-            <img src="https://github.com/user-attachments/assets/71cdedd5-63b3-4c66-b0f4-295aa7982c9a" alt="Power Automate flow for RAR data validation" loading="lazy">
-            <div class="slide-empty"><strong>Image unavailable</strong></div>
+            <img src="https://github.com/user-attachments/assets/a61cea35-3ef0-4da7-9838-98bdbecf3313" alt="Revenue analytics Power BI dashboard" loading="lazy">
+            <div class="slide-empty"><strong>25+ hrs</strong>saved on every monthly P&amp;L review</div>
           </div>
-          <figcaption><span class="slide-title">RAR data validation with Power Automate</span><span class="slide-note">Automated validation checks and reporting for the Revenue Accounting team.</span></figcaption>
+          <figcaption><span class="slide-title">Revenue analytics in Power BI</span><span class="slide-client">Lexmark R&amp;D, Cebu City, 2023 to 2024</span><span class="slide-note">Volume-weighted AUR to rank customers, products, and company codes for P&amp;L reviews.</span> <a href="https://app.powerbi.com/view?r=eyJrIjoiY2JhYzk3NGItYmVhOC00NGQ4LWJiNTktMjY5ZmY1YTExY2E0IiwidCI6ImJhNThmNDM4LWI2YWItNDEwOS1iYTM5LWVhMGFiZTA2ZTQwZiIsImMiOjEwfQ%3D%3D&amp;embedImagePlaceholder=true">Explore the live report</a></figcaption>
         </figure>
       </div>
       <div class="gallery-controls">
@@ -470,30 +486,10 @@
       <article class="case">
         <div class="case-figure">90%<small>less manual data work for project teams</small></div>
         <div>
-          <h3>Construction project tracking</h3>
+          <h3>Project reporting platform on Microsoft Fabric</h3>
           <p class="case-client">D&amp;E Air Conditioning, Melbourne</p>
-          <p class="case-body">Pre-construction and construction teams were tracking progress through manual data workflows. I delivered end-to-end Power BI solutions that gave multiple project teams one view of progress, and I keep them current by turning recurring change requests into model, measure, and report updates.</p>
-          <ul class="tools"><li>Power BI</li><li>Star-schema semantic models</li><li>DAX</li><li>Power Query</li></ul>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-figure">3 layers<small>bronze, silver, and gold in one Lakehouse</small></div>
-        <div>
-          <h3>Fabric ELT for the full project lifecycle</h3>
-          <p class="case-client">D&amp;E Air Conditioning, Melbourne</p>
-          <p class="case-body">I implemented an ELT solution in Microsoft Fabric that extracts data from the Autodesk Data Connector and SharePoint files into a medallion-architecture Lakehouse. Fabric Pipelines, Dataflow Gen2, and notebooks handle ingestion, transformation, and scheduled refresh, delivering governed data across drafting, engineering, and construction.</p>
-          <ul class="tools"><li>Fabric Lakehouse</li><li>Pipelines</li><li>Dataflow Gen2</li><li>Notebooks</li><li>Autodesk Construction Cloud</li></ul>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-figure">25+ hrs<small>saved on every monthly P&amp;L review</small></div>
-        <div>
-          <h3>Automated finance reporting on SAP</h3>
-          <p class="case-client">Lexmark R&amp;D, Cebu City</p>
-          <p class="case-body">I transformed SAP HANA and BW finance data into centralized Power BI semantic models covering revenue, cost, and OPEX for executive leadership. Automated refresh orchestration and writeback workflows replaced manual preparation, with row-level security controlling access across finance stakeholders.</p>
-          <ul class="tools"><li>SAP HANA / BW</li><li>Power BI</li><li>Power Apps</li><li>Power Automate</li><li>Row-level security</li></ul>
+          <p class="case-body">Pre-construction and construction teams were tracking progress through manual data workflows. I implemented an ELT solution in Microsoft Fabric that extracts data from the Autodesk Data Connector and SharePoint files into a medallion-architecture Lakehouse, orchestrated with Fabric Pipelines, Dataflow Gen2, and notebooks. On top of it, Power BI gives multiple project teams one view of progress across drafting, engineering, and construction.</p>
+          <ul class="tools"><li>Fabric Lakehouse</li><li>Pipelines</li><li>Dataflow Gen2</li><li>Notebooks</li><li>Power BI</li><li>Autodesk Construction Cloud</li></ul>
         </div>
       </article>
 
@@ -514,6 +510,16 @@
           <p class="case-client">Moderno Plant X, Houston</p>
           <p class="case-body">I built Overall Equipment Effectiveness dashboards that monitor machine performance and utilization, supporting downtime reduction and resource allocation. Ten years in electronics and semiconductor testing meant I could read the equipment data quickly and choose KPIs operators recognize.</p>
           <ul class="tools"><li>Power BI</li><li>DAX</li><li>Operational KPIs</li></ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-figure">25+ hrs<small>saved on every monthly P&amp;L review</small></div>
+        <div>
+          <h3>Automated finance reporting on SAP</h3>
+          <p class="case-client">Lexmark R&amp;D, Cebu City</p>
+          <p class="case-body">I transformed SAP HANA and BW finance data into centralized Power BI semantic models covering revenue, cost, and OPEX for executive leadership. Automated refresh orchestration and writeback workflows replaced manual preparation, with row-level security controlling access across finance stakeholders.</p>
+          <ul class="tools"><li>SAP HANA / BW</li><li>Power BI</li><li>Power Apps</li><li>Power Automate</li><li>Row-level security</li></ul>
         </div>
       </article>
     </div>
@@ -701,19 +707,74 @@
   (function () {
     var track = document.getElementById('gallery-track');
     if (!track) return;
-    var slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
     var prev = document.getElementById('gallery-prev');
     var next = document.getElementById('gallery-next');
     var count = document.getElementById('gallery-count');
+    var slides = [];
 
-    // Show a placeholder for any screenshot that has not been added yet.
-    slides.forEach(function (slide) {
-      var img = slide.querySelector('img');
-      function empty() { slide.classList.add('is-empty'); }
-      if (img.complete && img.naturalWidth === 0) empty();
-      img.addEventListener('error', empty);
-    });
+    // ---- Dynamic gallery -------------------------------------------------
+    // Every image in the repo folder below becomes a slide, sorted by file name.
+    // The file name becomes the caption: "01-project-tracking-dashboard.png"
+    // shows as "Project tracking dashboard". If the folder is empty or cannot
+    // be read, the built-in slides in the HTML are shown instead.
+    var FOLDER = 'images/works';
+    var OWNER = 'greatcyan';
+    var REPO = 'bi-portfolio';
+    if (/\.github\.io$/.test(location.hostname)) {
+      OWNER = location.hostname.split('.')[0];
+      REPO = location.pathname.split('/')[1] || (OWNER + '.github.io');
+    }
 
+    function titleFrom(name) {
+      var t = name.replace(/\.[^.]+$/, '').replace(/^\d+[\s._-]*/, '').replace(/[-_]+/g, ' ').trim();
+      return t ? t.charAt(0).toUpperCase() + t.slice(1) : name;
+    }
+
+    function buildSlide(file, i) {
+      var colors = ['gold', 'fabric', 'silver', 'bronze', 'ink'];
+      var title = titleFrom(file.name);
+      var figure = document.createElement('figure');
+      figure.className = 'slide';
+      figure.style.setProperty('--stage-color', 'var(--' + colors[i % colors.length] + ')');
+      var frame = document.createElement('div');
+      frame.className = 'slide-frame';
+      var img = document.createElement('img');
+      img.src = FOLDER + '/' + encodeURIComponent(file.name);
+      img.alt = title;
+      img.loading = 'lazy';
+      // A new image can be listed a minute before the site finishes publishing it.
+      img.addEventListener('error', function () { figure.remove(); refresh(); });
+      frame.appendChild(img);
+      var caption = document.createElement('figcaption');
+      var span = document.createElement('span');
+      span.className = 'slide-title';
+      span.textContent = title;
+      caption.appendChild(span);
+      figure.appendChild(frame);
+      figure.appendChild(caption);
+      return figure;
+    }
+
+    function loadFolder() {
+      var url = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + FOLDER;
+      return fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(function (items) {
+          if (!Array.isArray(items)) return;
+          var files = items.filter(function (f) {
+            return f.type === 'file' && /\.(png|jpe?g|webp|gif|svg)$/i.test(f.name);
+          }).sort(function (x, y) {
+            return x.name.localeCompare(y.name, undefined, { numeric: true });
+          });
+          if (!files.length) return;
+          track.textContent = '';
+          files.forEach(function (f, i) { track.appendChild(buildSlide(f, i)); });
+          track.scrollLeft = 0;
+        })
+        .catch(function () { /* keep the built-in slides */ });
+    }
+
+    // ---- Swipe controls --------------------------------------------------
     function current() {
       var best = 0, bestDist = Infinity;
       slides.forEach(function (s, i) {
@@ -723,11 +784,16 @@
       return best;
     }
     function update() {
+      if (!slides.length) return;
       var i = current();
       var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
       count.textContent = (i + 1) + ' of ' + slides.length;
       prev.disabled = i === 0;
       next.disabled = i === slides.length - 1 || atEnd;
+    }
+    function refresh() {
+      slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
+      update();
     }
     function go(step) {
       var i = Math.max(0, Math.min(slides.length - 1, current() + step));
@@ -738,7 +804,16 @@
     next.addEventListener('click', function () { go(1); });
     track.addEventListener('scroll', function () { window.requestAnimationFrame(update); });
     window.addEventListener('resize', update);
-    update();
+
+    // Built-in slides: show the headline figure when a slide has no screenshot yet.
+    Array.prototype.forEach.call(track.querySelectorAll('.slide'), function (slide) {
+      var img = slide.querySelector('img');
+      function empty() { slide.classList.add('is-empty'); }
+      if (img.complete && img.naturalWidth === 0) empty();
+      img.addEventListener('error', empty);
+    });
+    refresh();
+    loadFolder().then(refresh);
   })();
 </script>
 </body>
